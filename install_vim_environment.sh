@@ -39,9 +39,9 @@ mv "$LOCAL_PATH"/tmp/vim-pathogen-master/autoload ~/.vim/
 unzip NERD_tree.zip -d ~/.vim/bundle/NERD_tree
 unzip taglist_46.zip -d ~/.vim/bundle/taglist_46
 
-cp "$LOCAL_PATH"/.vimrc ~/ -f
-cp "$LOCAL_PATH"/.ProjectFileList ~/ -f
-cp "$LOCAL_PATH"/vim_environment.sh ~/bin/ -f
+cp "$LOCAL_PATH"/vimrc ~/.vimrc -f
+cp "$LOCAL_PATH"/ProjectFileList ~/.ProjectFileList -f
+cp "$LOCAL_PATH"/genEnv.sh ~/bin/genEnv -f
 
 rm "$LOCAL_PATH"/tmp -rf
 
