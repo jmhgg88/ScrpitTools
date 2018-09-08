@@ -1,6 +1,27 @@
+"让配置变更立即生效
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+
+"在光标所在位置处使用‘,+f’快捷键，查找所有文件中光标所在位置的字符串
+" Set mapleader
+let mapleader = ","
+" for easy using sliver search
+nmap <leader>f :norm yiw<CR>:cs find t <C-R>"<CR>
+" Locate and return character "above" current cursor position.
+function! LookUpwards()
+    let column_num = virtcol('.')
+    let target_pattern = '\%' . column_num . 'v.'
+    let target_line_num = search(target_pattern . '*\S', 'bnW')
+    if !target_line_num
+        return ""
+    else
+        return matchstr(getline(target_line_num), target_pattern)
+    endif
+endfunction
+imap <silent> <C-Y> <C-R><C-R>=LookUpwards()<CR>
 
 "搜索高亮
 set hlsearch

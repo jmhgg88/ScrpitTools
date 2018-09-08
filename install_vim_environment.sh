@@ -3,6 +3,7 @@ LOCAL_PATH=`pwd`
 
 sudo apt-get install cscope
 sudo apt-get install ctags
+sudo apt-get install silversearcher-ag
 
 if [ ! -d "$LOCAL_PATH/tmp" ]; then
 	echo "Create temporary diectory of $LOCAL_PATH/tmp"
