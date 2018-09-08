@@ -33,6 +33,8 @@ set bg=dark
 "开启所有模式的mouse支持
 set mouse=a
 
+cs add ~/.cscope.out
+
 "
 "taglist
 "

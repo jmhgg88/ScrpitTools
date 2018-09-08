@@ -8,23 +8,28 @@ generate_tag_filename()
 {
 	dir=$1
 	#replase "/" to "_"
-	export tmp_tag_filename=".indexof_"${dir//"/"/"_"}"tags"
+	export tmp_tag_filename=".indexof_"${dir//"/"/"_"}"_tags"
 }
 
 generate_ctags_for_directory()
 {
-	echo "Goto directory"$1
+	echo "Goto directory "$1
 	cd $1
 	if [ $? -eq 0 ]; then
-		echo "Execute success"
+		echo "enter "$1" execute success"
 		
 		ctags -R `pwd` --fields=+IS
 		generate_tag_filename $1
 		echo "===>Tag file name is "$tmp_tag_filename
-		mv tags ~/.ctags/$tmp_tag_filename
+		cp tags ~/.ctags/$tmp_tag_filename
+        if [ $? -eq 0 ]; then
+            echo "copy tags to "$tmp_tag_filename" success"
+        else
+            echo "copy tags to "$tmp_tag_filename" fail"
+        fi
 		cd $CTAGS_LOCAL_PATH
 	else
-		echo "Execute fail"
+		echo "enter "$1" execute fail"
 	fi
 }
 
@@ -43,7 +48,8 @@ generate_tag_store_directory()
 
 set_tag_to_vimrc()
 {
-	echo "Try to find filename "$1"in .vimrc"
+	echo "Try to find filename "$1" in .vimrc"
+	grep $1 ~/.vimrc
 	if [ $? -eq 0 ]; then
 		echo "Found "$1" in .vimrc"
 	else
