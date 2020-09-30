@@ -1,6 +1,7 @@
 #!/bin/bash
 LOCAL_PATH=`pwd`
 
+sudo apt-get install vim
 sudo apt-get install cscope
 sudo apt-get install ctags
 sudo apt-get install silversearcher-ag
