@@ -9,7 +9,14 @@ filetype plugin indent on
 " Set mapleader
 let mapleader = ","
 " for easy using sliver search
-nmap <leader>f :norm yiw<CR>:cs find t <C-R>"<CR>
+nmap <leader>c :norm yiw<CR>:cs find c <C-R>"<CR>
+nmap <leader>d :norm yiw<CR>:cs find d <C-R>"<CR>
+nmap <leader>e :norm yiw<CR>:cs find e <C-R>"<CR>
+nmap <leader>f :norm yiw<CR>:cs find f <C-R>"<CR>
+nmap <leader>g :norm yiw<CR>:cs find g <C-R>"<CR>
+nmap <leader>i :norm yiw<CR>:cs find i <C-R>"<CR>
+nmap <leader>s :norm yiw<CR>:cs find s <C-R>"<CR>
+nmap <leader>t :norm yiw<CR>:cs find t <C-R>"<CR>
 " Locate and return character "above" current cursor position.
 function! LookUpwards()
     let column_num = virtcol('.')
@@ -52,7 +59,7 @@ set cino=g0,:0
 set bg=dark
 
 "开启所有模式的mouse支持
-set mouse=a
+"set mouse=a
 
 cs add ~/.cscope.out
 
